@@ -1,7 +1,5 @@
 package com.example.android_linkedin_ui.ui.screens
 
-package com.example.android_linkedin_ui.ui.screens
-
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
