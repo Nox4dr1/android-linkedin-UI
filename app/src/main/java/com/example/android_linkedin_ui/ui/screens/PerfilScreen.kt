@@ -10,6 +10,6 @@ import androidx.compose.ui.Modifier
 @Composable
 fun PerfilScreen(modifier: Modifier = Modifier) {
     Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Text("Inicio: en construcción")
+        Text("Perfil: en construcción")
     }
 }
