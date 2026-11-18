@@ -42,7 +42,7 @@ fun MiRedScreen(modifier: Modifier = Modifier) {
 
     Column(modifier = modifier.fillMaxSize().background(LinkedInBackground)) {
 
-        // Barra de busqueda
+        // Barra de búsqueda
         TextField(
             value = "",
             onValueChange = {},
@@ -57,13 +57,13 @@ fun MiRedScreen(modifier: Modifier = Modifier) {
             )
         )
 
-        // Opciones de menu
+        // Opciones de menú
         MenuItemFila(texto = "Manage my network")
         HorizontalDivider(color = Color.LightGray, thickness = 0.5.dp)
         MenuItemFila(texto = "Invitations")
         HorizontalDivider(color = Color.LightGray, thickness = 0.5.dp)
 
-        // Titulo
+        // Título
         Text(
             text = "People Also Viewed",
             fontWeight = FontWeight.Bold,
@@ -83,7 +83,6 @@ fun MiRedScreen(modifier: Modifier = Modifier) {
         }
     }
 }
-
 @Composable
 private fun MenuItemFila(texto: String) {
     Row(
