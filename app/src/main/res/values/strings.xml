@@ -1,7 +1,3 @@
 <resources>
     <string name="app_name">android-linkedin-UI</string>
-    <string name="nombre_perfil">Johnn Hidalgo</string>
-    <string name="descrip_perfil"><![CDATA[Jefe de Innovación Tecnológica | MBA | Líder de Desarrollo de Software | Gestión de Proyectos | Agile/Scrum | Arquitectura de Soluciones | BI & Transformación Digital]]></string>
-    <string name="lugar_perfil">La Paz, Bolivia</string>
-    <string name="contactos_perfil">Más de 500 contactos</string>
-</resources>
+   </resources>

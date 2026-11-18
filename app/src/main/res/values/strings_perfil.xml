@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="nombre_perfil">Johnn Hidalgo</string>
+    <string name="descrip_perfil">Jefe de Innovación Tecnológica | MBA | Líder de Desarrollo de Software | Gestión de Proyectos | Agile/Scrum | Arquitectura de Soluciones | BI &amp; Transformación Digital</string>
+    <string name="lugar_perfil">La Paz, Bolivia</string>
+    <string name="contactos_perfil">Más de 500 contactos</string>
+    <string name="acerca_de_titulo_perfil">Acerca de</string>
+    <string name="acerca_de_perfil">Lidero transformación digital con foco en resultados. MBA e Ingeniero de Software, con más de 7 años en Bolivia y México, entre startups e industria. Priorizo y gobierno portafolios de proyectos que generan valor al negocio y los ejecuto con equipos multidisciplinarios ágiles, llevando automatización, datos e inteligencia artificial de la idea a producción con adopción real. También formo talento como docente y comparto lo que aprendo como speaker en eventos de LATAM.</string>
+</resources>

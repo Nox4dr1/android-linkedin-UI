@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -16,6 +17,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -35,6 +38,7 @@ import com.example.android_linkedin_ui.ui.theme.AndroidlinkedinUITheme
 import com.example.android_linkedin_ui.ui.theme.LinkedInBackground
 import com.example.android_linkedin_ui.ui.theme.LinkedInBlue
 import com.example.android_linkedin_ui.ui.theme.LinkedInDarkBlue
+import com.example.android_linkedin_ui.ui.theme.LinkedInTextSecondary
 
 @Composable
 fun PerfilScreen(modifier: Modifier = Modifier) {
@@ -54,7 +58,9 @@ fun PerfilScreen(modifier: Modifier = Modifier) {
             DatosPerfil()
             BotonesPerfil()
         }
-        Text("Acerca de")
+        SeccionPerfil(stringResource(R.string.acerca_de_titulo_perfil)) {
+            Text(stringResource(R.string.acerca_de_perfil))
+        }
         Text("Experiencia")
     }
 }
@@ -81,7 +87,7 @@ private fun EncabezadoPerfil() {
                 .border(4.dp, Color.White, CircleShape),
             contentAlignment = Alignment.Center
         ) {
-            Text("PP", color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold)
+            Text("JH", color = Color.White, fontSize = 32.sp, fontWeight = FontWeight.Bold)
         }
     }
 }
@@ -100,6 +106,7 @@ private fun DatosPerfil() {
         )
         Text(
             stringResource(R.string.lugar_perfil),
+            color = LinkedInTextSecondary,
             style = MaterialTheme.typography.bodyMedium
         )
         Text(
@@ -131,6 +138,27 @@ private fun BotonesPerfil() {
             modifier = Modifier.weight(1f)
         ) {
             Text("Añadir sección")
+        }
+    }
+}
+
+@Composable
+private fun SeccionPerfil(titulo: String, contenido: @Composable () -> Unit) {
+    //la tarjeta recibe un pedazo de interfaz como parámetro. La tarjeta pone el marco y el título
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.White)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                titulo,
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(8.dp))
+            contenido()
         }
     }
 }
