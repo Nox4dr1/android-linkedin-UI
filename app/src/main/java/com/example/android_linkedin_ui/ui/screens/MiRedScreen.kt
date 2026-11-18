@@ -38,13 +38,11 @@ fun MiRedScreen(modifier: Modifier = Modifier) {
         SugerenciaRed("username5", "948.423 followers", "Universidad...Docente...Beca"),
         SugerenciaRed("username6", "83.732 followers", "Universidad...Docente...Beca"),
         SugerenciaRed("username7", "3.684 followers", "Universidad...Docente...Beca"),
-
-
-        )
+    )
 
     Column(modifier = modifier.fillMaxSize().background(LinkedInBackground)) {
 
-        // Barra de búsqueda
+        // Barra de busqueda
         TextField(
             value = "",
             onValueChange = {},
@@ -59,13 +57,13 @@ fun MiRedScreen(modifier: Modifier = Modifier) {
             )
         )
 
-        // Opciones de menú
+        // Opciones de menu
         MenuItemFila(texto = "Manage my network")
         HorizontalDivider(color = Color.LightGray, thickness = 0.5.dp)
         MenuItemFila(texto = "Invitations")
         HorizontalDivider(color = Color.LightGray, thickness = 0.5.dp)
 
-        // Título
+        // Titulo
         Text(
             text = "People Also Viewed",
             fontWeight = FontWeight.Bold,
@@ -87,7 +85,7 @@ fun MiRedScreen(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun MenuItemFila(texto: String) {
+private fun MenuItemFila(texto: String) {
     Row(
         modifier = Modifier.fillMaxWidth().background(Color.White).padding(horizontal = 16.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
@@ -99,7 +97,7 @@ fun MenuItemFila(texto: String) {
 }
 
 @Composable
-fun TarjetaSugerencia(sugerencia: SugerenciaRed) {
+private fun TarjetaSugerencia(sugerencia: SugerenciaRed) {
     // Estado para la interacción del botón
     var isFollowing by remember { mutableStateOf(false) }
 
