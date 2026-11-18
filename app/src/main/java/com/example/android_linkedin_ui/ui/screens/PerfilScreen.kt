@@ -22,7 +22,11 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +34,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -70,9 +75,7 @@ fun PerfilScreen(modifier: Modifier = Modifier) {
             EncabezadoPerfil()
             DatosPerfil()
             BotonesPerfil()
-        }
-        SeccionPerfil(stringResource(R.string.acerca_de_titulo_perfil)) {
-            Text(stringResource(R.string.acerca_de_perfil))
+            AcercaDe()
         }
         SeccionPerfil(stringResource(R.string.experiencia_titulo_perfil)) {
             experiencias.forEach { ItemPerfil(it) }
@@ -80,9 +83,9 @@ fun PerfilScreen(modifier: Modifier = Modifier) {
         SeccionPerfil(stringResource(R.string.educacion_titulo_perfil)) {
             estudios.forEach { ItemPerfil(it) }
         }
+    }
         Spacer(modifier = Modifier.height(16.dp))
     }
-}
 
 //para el encabezado
 
@@ -205,6 +208,38 @@ private fun ItemPerfil(item: ElementoPerfil) {
                 item.periodo,
                 style = MaterialTheme.typography.bodySmall,
                 color = LinkedInTextSecondary
+            )
+        }
+    }
+}
+
+
+// Sección "Acerca de" que muestra una breve descripción con opción de expandir/contraer
+@Composable
+private fun AcercaDe() {
+    // Estado para recordar si el texto está expandido (true) o contraído (false)
+    var expandido by remember { mutableStateOf(false) }
+
+    // Obtiene el texto descriptivo del perfil desde los recursos de strings (strings.xml)
+    val texto = stringResource(R.string.acerca_de_perfil)
+
+    // Componente reutilizable para envolver la sección con su título correspondiente
+    SeccionPerfil(stringResource(R.string.acerca_de_titulo_perfil)) {
+        // Muestra el texto de la descripción
+        Text(
+            text = texto,
+            // Si está expandido muestra todo el texto, si no solo muestra un máximo de 2 líneas
+            maxLines = if (expandido) Int.MAX_VALUE else 2,
+            // Agrega puntos suspensivos (...) al final si el texto excede el límite de líneas
+            overflow = TextOverflow.Ellipsis
+        )
+
+        // Botón para alternar el estado de expansión al hacer clic
+        TextButton(onClick = { expandido = !expandido }) {
+            // Cambia el texto del botón dinámicamente entre "Ver menos" y "Ver más"
+            Text(
+                if (expandido) stringResource(R.string.ver_menos_perfil)
+                else stringResource(R.string.ver_mas_perfil)
             )
         }
     }
