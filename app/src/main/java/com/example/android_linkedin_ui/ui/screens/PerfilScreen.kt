@@ -40,6 +40,19 @@ import com.example.android_linkedin_ui.ui.theme.LinkedInBlue
 import com.example.android_linkedin_ui.ui.theme.LinkedInDarkBlue
 import com.example.android_linkedin_ui.ui.theme.LinkedInTextSecondary
 
+//datos, no textos fijos de la interfaz,
+private data class ElementoPerfil(val titulo: String, val lugar: String, val periodo: String)
+
+private val experiencias = listOf(
+    ElementoPerfil("Docente", "UPB", "  Actualidad"),
+    ElementoPerfil("Jefe de Innovación Tecnológica", "Droguería INTI SA", "2021 – Actualidad")
+)
+
+private val estudios = listOf(
+    ElementoPerfil("Principios SOLID y Clean Code", "DevTalles", "2023"),
+    ElementoPerfil("Dart: De cero hasta los detalles", "DevTalles", "2023")
+)
+
 @Composable
 fun PerfilScreen(modifier: Modifier = Modifier) {
     Column(
@@ -61,7 +74,13 @@ fun PerfilScreen(modifier: Modifier = Modifier) {
         SeccionPerfil(stringResource(R.string.acerca_de_titulo_perfil)) {
             Text(stringResource(R.string.acerca_de_perfil))
         }
-        Text("Experiencia")
+        SeccionPerfil(stringResource(R.string.experiencia_titulo_perfil)) {
+            experiencias.forEach { ItemPerfil(it) }
+        }
+        SeccionPerfil(stringResource(R.string.educacion_titulo_perfil)) {
+            estudios.forEach { ItemPerfil(it) }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
@@ -159,6 +178,34 @@ private fun SeccionPerfil(titulo: String, contenido: @Composable () -> Unit) {
             )
             Spacer(modifier = Modifier.height(8.dp))
             contenido()
+        }
+    }
+}
+
+@Composable
+private fun ItemPerfil(item: ElementoPerfil) {
+    Row(modifier = Modifier.fillMaxWidth().padding(vertical = 8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(48.dp)
+                .background(LinkedInBackground)
+        )
+        Column(modifier = Modifier.padding(start = 12.dp)) {
+            Text(
+                item.titulo,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                item.lugar,
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Text(
+                item.periodo,
+                style = MaterialTheme.typography.bodySmall,
+                color = LinkedInTextSecondary
+            )
         }
     }
 }
