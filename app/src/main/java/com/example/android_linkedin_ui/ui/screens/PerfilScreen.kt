@@ -75,18 +75,17 @@ fun PerfilScreen(modifier: Modifier = Modifier) {
             EncabezadoPerfil()
             DatosPerfil()
             BotonesPerfil()
-            AcercaDe()
         }
+        AcercaDe()
         SeccionPerfil(stringResource(R.string.experiencia_titulo_perfil)) {
             experiencias.forEach { ItemPerfil(it) }
         }
         SeccionPerfil(stringResource(R.string.educacion_titulo_perfil)) {
             estudios.forEach { ItemPerfil(it) }
         }
-    }
         Spacer(modifier = Modifier.height(16.dp))
     }
-
+}
 //para el encabezado
 
 @Composable
